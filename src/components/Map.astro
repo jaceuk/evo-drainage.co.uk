@@ -1,7 +1,6 @@
 ---
 import { Image } from '@astrojs/image/components';
 import LogoWhich from '../images/logo-which.png';
-import LogoGasSafe from '../images/logo-gas-safe.png';
 
 interface Props {
 	locationSlug: string;
@@ -23,7 +22,6 @@ const { locationSlug } = Astro.props;
 	</section>
 
 	<div class="logos">
-		<Image src={LogoGasSafe} alt="Gas Safe logo" width={70} />
 		<Image src={LogoWhich} alt="Which logo" width={115} />
 	</div>
 </div>

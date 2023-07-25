@@ -2,7 +2,6 @@
 import { Image } from '@astrojs/image/components';
 import LogoCheckatrade from '../../images/logo-checkatrade.svg';
 import LogoWhich from '../../images/logo-which.png';
-import LogoGasSafe from '../../images/logo-gas-safe.png';
 import Section from '../Section.astro';
 
 type Props = Record<string, never>;
@@ -24,7 +23,6 @@ type Props = Record<string, never>;
 		</p>
 		<p><small>Tel: 0800 710 1011 - info@evo-homeservices.co.uk</small></p>
 		<div class="logos">
-			<Image class="gas-safe" src={LogoGasSafe} alt="Gas Safe logo" />
 			<Image class="checkatrade" src={LogoCheckatrade} alt="Checkatrade logo" />
 			<Image class="which" src={LogoWhich} alt="Which logo" />
 		</div>

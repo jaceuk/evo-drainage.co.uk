@@ -1,7 +1,7 @@
 ---
 import MobileNav from './MobileNav.astro';
 import { Image } from '@astrojs/image/components';
-import LogoPlumbing from '../../images/logo-plumbing.svg';
+import LogoDrainage from '../../images/logo-drainage.svg';
 import DesktopNav from './DesktopNav.astro';
 import EnquireBar from './EnquireBar.astro';
 
@@ -14,7 +14,7 @@ type Props = Record<string, never>;
 	<div class="inner-wrapper">
 		<div class="navbar">
 			<a href="/">
-				<Image class="logo" src={LogoPlumbing} alt="EVO Plumbing and Heating logo" />
+				<Image class="logo" src={LogoDrainage} alt="EVO Drainage Services logo" />
 				<span class="sr-only">Homepage</span>
 			</a>
 			<DesktopNav />
