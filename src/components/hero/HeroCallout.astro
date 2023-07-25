@@ -1,0 +1,67 @@
+---
+import { Image } from '@astrojs/image/components';
+import LogoCheckatrade from '../../images/logo-checkatrade.svg';
+import { Modal } from '../contactForm/Modal';
+import { average, reviews } from '../../utils/checkatrade';
+import { FREEPHONE_NUMBER } from '../../utils/constants';
+
+type Props = Record<string, never>;
+---
+
+<section id="hero" class="card">
+	<div class="info">
+		<p class="h5 emergency">24 hour emergency helpline</p>
+		<p class="h5">Freephone: {FREEPHONE_NUMBER}</p>
+		<p>No call out charge - Fixed fee</p>
+	</div>
+
+	<Modal buttonType="primary" client:only="react" />
+
+	<div class="info checkatrade">
+		<Image src={LogoCheckatrade} alt="Checkatrade logo" />
+		<p class="reviews">
+			<strong>{average} out of 10</strong><span class="small">{reviews} reviews</span>
+		</p>
+	</div>
+</section>
+
+<style lang="scss">
+	section {
+		display: flex;
+		flex-direction: column;
+		gap: var(--scale-16-32);
+		align-items: center;
+		text-align: center;
+
+		@media (min-width: 768px) {
+			width: fit-content;
+		}
+
+		button {
+			width: 100%;
+		}
+	}
+
+	.card {
+		padding: var(--scale-16-48);
+	}
+
+	.info {
+		display: grid;
+		gap: var(--s-8);
+
+		&.checkatrade {
+			padding: 0 var(--s-32);
+		}
+	}
+
+	.emergency {
+		color: var(--c-orange);
+	}
+
+	.reviews {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+	}
+</style>

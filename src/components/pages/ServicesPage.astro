@@ -1,0 +1,31 @@
+---
+import Hero from '../hero/Hero.astro';
+import HeroImage from '../../images/bg-home.jpg';
+import Main from '../ServicesMain.astro';
+import Reviews from '../Reviews.astro';
+import Services from '../Services.astro';
+import Strapline from '../Strapline.astro';
+import type { Review } from '../../utils/types';
+
+interface Props {
+	county?: string;
+	countySlug?: string;
+	reviews: Review[];
+	service: string;
+}
+
+const { county, reviews, service, countySlug = '' } = Astro.props;
+const firstFourReviews = reviews.slice(0, 4);
+const lastEightReviews = reviews.slice(4, 12);
+---
+
+<Hero
+	service={service}
+	location={county !== 'South East England' ? county : ''}
+	image={HeroImage}
+/>
+<Main county={county} countySlug={countySlug} />
+<Reviews reviews={firstFourReviews} />
+<Services county={county} countySlug={countySlug} />
+<Strapline location={county} service={service} />
+<Reviews reviews={lastEightReviews} />

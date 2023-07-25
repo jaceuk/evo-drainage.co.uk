@@ -1,0 +1,33 @@
+.form {
+	display: grid;
+	gap: var(--s-32);
+
+	.row {
+		display: grid;
+		gap: var(--s-8);
+	}
+
+	.label {
+		display: block;
+		font-weight: var(--fw-bold);
+	}
+
+	.input {
+		padding: var(--s-16);
+		border-radius: var(--border-radius-extra-small);
+		border: 1px solid var(--c-nearly-black);
+	}
+
+	.required {
+		color: var(--c-accent);
+		font-weight: var(--fw-regular);
+		font-size: var(--fs-caption);
+	}
+
+	.actions {
+		display: flex;
+		align-items: center;
+		justify-content: end;
+		gap: var(--scale-8-16);
+	}
+}

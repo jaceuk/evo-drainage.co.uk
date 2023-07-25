@@ -1,0 +1,37 @@
+---
+import Icon from 'astro-icon';
+
+interface Props {
+	title: string;
+	text: string;
+	postcode: string;
+}
+
+const { title, text, postcode } = Astro.props;
+---
+
+<figure data-postcode={postcode}>
+	<h3 class="h5 coloured-text">{title}</h3>
+	<blockquote>
+		<span><Icon name="icon-park:quote" /></span>
+		<p>{text}</p>
+	</blockquote>
+</figure>
+
+<style>
+	figure {
+		display: grid;
+		gap: var(--s-16);
+	}
+
+	blockquote {
+		display: flex;
+		gap: var(--s-8);
+	}
+
+	svg {
+		width: var(--s-32);
+		height: var(--s-32);
+		fill: var(--c-orange);
+	}
+</style>

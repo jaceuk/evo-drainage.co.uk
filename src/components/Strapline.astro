@@ -1,0 +1,24 @@
+---
+interface Props {
+	location?: string;
+	service: string;
+}
+
+const { location, service } = Astro.props;
+---
+
+<div class="strapline">
+	<div class="inner-wrapper">
+		<h3>
+			Your first choice for {service} in {location && location}
+		</h3>
+	</div>
+</div>
+
+<style>
+	.strapline {
+		background: var(--c-orange);
+		color: var(--c-white);
+		padding: var(--scale-32-64) 0;
+	}
+</style>

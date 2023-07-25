@@ -1,0 +1,99 @@
+---
+import MobileNav from './MobileNav.astro';
+import { Image } from '@astrojs/image/components';
+import LogoPlumbing from '../../images/logo-plumbing.svg';
+import DesktopNav from './DesktopNav.astro';
+import EnquireBar from './EnquireBar.astro';
+
+type Props = Record<string, never>;
+---
+
+<script src="../../js/header"></script>
+
+<header>
+	<div class="inner-wrapper">
+		<div class="navbar">
+			<a href="/">
+				<Image class="logo" src={LogoPlumbing} alt="EVO Plumbing and Heating logo" />
+				<span class="sr-only">Homepage</span>
+			</a>
+			<DesktopNav />
+			<MobileNav />
+		</div>
+	</div>
+
+	<div class="bar">
+		<EnquireBar />
+	</div>
+	<div class="bottom-border"></div>
+</header>
+
+<style lang="scss">
+	header {
+		box-shadow: var(--box-shadow-menu);
+		z-index: 10;
+		position: relative;
+		background: var(--c-white);
+
+		.bottom-border {
+			height: var(--s-8);
+			background: var(--c-evo-green-medium);
+		}
+
+		&.sticky {
+			position: sticky;
+			top: 0;
+			animation: slideDown var(--transition);
+			border: none;
+
+			.navbar {
+				padding: var(--scale-8-16) 0;
+			}
+
+			.bar {
+				display: block;
+			}
+
+			.logo {
+				height: 43px;
+			}
+
+			.bottom-border {
+				display: none;
+			}
+		}
+	}
+
+	.logo {
+		width: clamp(12.3rem, 10.1636rem + 5.697vw, 17rem);
+		z-index: 150;
+		position: relative;
+		height: 43px;
+
+		@media (min-width: 768px) {
+			height: 55px;
+		}
+	}
+
+	@keyframes slideDown {
+		from {
+			top: -16px;
+			opacity: 0;
+		}
+		to {
+			top: 0;
+			opacity: 1;
+		}
+	}
+
+	.navbar {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		padding: var(--scale-16-32) 0;
+	}
+
+	.bar {
+		display: none;
+	}
+</style>

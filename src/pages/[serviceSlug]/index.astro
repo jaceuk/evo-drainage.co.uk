@@ -1,0 +1,38 @@
+---
+import { API_URL, WEBSITE } from '../../utils/constants';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getReviewsByServiceWithBackfill } from '../../utils/reviews';
+import type { Review, Service } from '../../utils/types';
+import ServicePage from '../../components/pages/ServicePage.astro';
+
+// Generate a new path for every service
+export async function getStaticPaths() {
+	const services = await fetch(`${API_URL}/services/website/${WEBSITE}`).then((response) =>
+		response.json()
+	);
+
+	return services.map((service: Service) => {
+		return {
+			params: { serviceSlug: service.slug },
+			props: { service }
+		};
+	});
+}
+
+const { service } = Astro.props;
+
+const reviews: Review[] = await getReviewsByServiceWithBackfill(service.id);
+const twelveReviews = reviews.slice(0, 12);
+
+const title = `${service.name} | EVO Plumbing and Heating Services`;
+const description = `Welcome to EVO Plumbing and Heating Services, your first choice for ${service.name} in South East England.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<ServicePage
+		location="South East England"
+		service={service.name}
+		reviews={twelveReviews}
+		serviceSlug={service.slug}
+	/>
+</BaseLayout>

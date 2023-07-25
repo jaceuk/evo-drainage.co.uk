@@ -1,0 +1,101 @@
+---
+import Section from '../Section.astro';
+import NavList from '../header/NavList.astro';
+import NavListItem from '../header/NavListItem.astro';
+import Legal from './Legal.astro';
+
+type Props = Record<string, never>;
+---
+
+<Section>
+	<h2 class="sr-only">Links</h2>
+	<div class="wrapper">
+		<nav>
+			<h3 class="h4 coloured-text">EVO Plumbing and Heating Services</h3>
+			<NavList>
+				<NavListItem href="/" text="Home" />
+				<NavListItem href="/about" text="About" />
+				<NavListItem href="/recruitment" text="Recruitment" />
+				<NavListItem href="/contact" text="Contact" />
+			</NavList>
+		</nav>
+
+		<nav>
+			<h3 class="h4 coloured-text">Plumbing and Heating</h3>
+			<NavList>
+				<NavListItem href="/plumbing" text="Plumbing" />
+				<NavListItem href="/blocked-sinks-toilets" text="Blcoked Sinks and Toilets" />
+				<NavListItem href="/central-heating" text="Central Heating" />
+				<NavListItem href="/boiler-servicing-repairs" text="Boiler Servicing and Repairs" />
+				<NavListItem href="/power-flushing" text="Power Flushing" />
+			</NavList>
+		</nav>
+
+		<nav>
+			<h3 class="h4 coloured-text">External maintenance</h3>
+			<NavList>
+				<NavListItem href="/gutter-cleaning" text="Gutter Cleaning" />
+				<NavListItem href="/patio-cleaning" text="Patio Cleaning" />
+				<NavListItem href="/roof-cleaning" text="Roof Cleaning" />
+			</NavList>
+		</nav>
+	</div>
+
+	<p class="coverage">
+		<small>
+			We cover
+			<a href="/services/east-sussex">East Sussex</a>,
+			<a href="/services/hampshire">Hampshire</a>,
+			<a href="/services/kent">Kent</a>,
+			<a href="/services/london">London</a>,
+			<a href="/services/surrey">Surrey</a>, and
+			<a href="/services/west-sussex">West Sussex</a>.
+		</small>
+	</p>
+</Section>
+
+<style lang="scss">
+	.wrapper {
+		display: none;
+		align-items: start;
+		gap: var(--scale-32-64);
+
+		@media (min-width: 768px) {
+			display: flex;
+		}
+	}
+
+	nav {
+		flex: 1;
+		display: grid;
+		gap: var(--scale-8-16);
+		border-right: 1px solid var(--c-grey);
+
+		&:last-child {
+			border: none;
+		}
+	}
+
+	ul {
+		display: grid;
+		gap: var(--scale-8-16);
+		padding: 0;
+	}
+
+	li {
+		list-style: none;
+	}
+
+	a {
+		font-weight: var(--fw-semi-bold);
+	}
+
+	.coverage {
+		text-align: center;
+		margin: auto;
+
+		@media (min-width: 768px) {
+			padding: var(--scale-16-32) 0 0 0;
+		}
+	}
+</style>

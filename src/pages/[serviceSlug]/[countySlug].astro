@@ -1,0 +1,62 @@
+---
+import { API_URL, WEBSITE } from '../../utils/constants';
+import type { Service, Review } from '../../utils/types';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getReviewsByServiceAndCountyWithBackfill } from '../../utils/reviews';
+import ServicePage from '../../components/pages/ServicePage.astro';
+import NeighbouringLocations from '../../components/NeighbouringLocations.astro';
+
+interface County {
+	id: number;
+	name: string;
+	slug: string;
+}
+
+// Generate every county for each service
+export async function getStaticPaths() {
+	const services = await fetch(`${API_URL}/services/website/${WEBSITE}`).then((response) =>
+		response.json()
+	);
+
+	const counties = await fetch(`${API_URL}/counties`).then((response) => response.json());
+
+	return services.map((service: Service) => {
+		return counties.map((county: County) => {
+			return {
+				params: { serviceSlug: service.slug, countySlug: county.slug },
+				props: { county, service }
+			};
+		});
+	});
+}
+
+const { county, service } = Astro.props;
+
+const locationsInSameCounty = await fetch(`${API_URL}/locations/county/${county.id}`).then(
+	(response) => response.json()
+);
+
+const reviews: Review[] = await getReviewsByServiceAndCountyWithBackfill(service.id, county.id);
+const twelveReviews = reviews.slice(0, 12);
+
+const title = `${service.name} in ${county.name} | EVO Plumbing and Heating Services`;
+const description = `Welcome to EVO Plumbing and Heating Services, your first choice for ${service.name} in ${county.name}..`;
+---
+
+<BaseLayout title={title} description={description}>
+	<ServicePage
+		location={county.name}
+		service={service.name}
+		reviews={twelveReviews}
+		serviceSlug={service.slug}
+		locationSlug={county.slug}
+		localTemplateNumber={1}
+	/>
+
+	<NeighbouringLocations
+		county={county.name}
+		service={service.name}
+		serviceSlug={service.slug}
+		locationsInSameCounty={locationsInSameCounty}
+	/>
+</BaseLayout>

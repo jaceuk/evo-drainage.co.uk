@@ -1,0 +1,53 @@
+---
+import Hero from '../hero/Hero.astro';
+import Reviews from '../Reviews.astro';
+import Strapline from '../Strapline.astro';
+import type { Review } from '../../utils/types';
+import ServiceMain from '../ServiceMain.astro';
+import SecondaryContent from '../ServiceSecondary.astro';
+
+import { getHeroImage } from '../../utils/getHeroImage';
+
+interface Props {
+	location: string;
+	reviews: Review[];
+	service: string;
+	serviceSlug: string;
+	locationSlug?: string;
+	localTemplateNumber?: number;
+	locationTel?: string;
+}
+
+const {
+	location,
+	reviews,
+	service,
+	serviceSlug,
+	locationSlug = '',
+	localTemplateNumber = 0,
+	locationTel
+} = Astro.props;
+const firstFourReviews = reviews.slice(0, 4);
+const lastEightReviews = reviews.slice(4, 12);
+
+const HeroImage = getHeroImage(serviceSlug);
+---
+
+<Hero service={service} location={location} image={HeroImage} />
+<ServiceMain
+	locationSlug={locationSlug}
+	serviceSlug={serviceSlug}
+	localTemplateNumber={localTemplateNumber}
+	location={location}
+	locationTel={locationTel}
+/>
+<Reviews reviews={firstFourReviews} />
+<SecondaryContent
+	locationSlug={locationSlug}
+	serviceSlug={serviceSlug}
+	localTemplateNumber={localTemplateNumber}
+	location={location}
+	locationTel={locationTel}
+/>
+<Strapline location={location} service={service} />
+<Reviews reviews={lastEightReviews} />

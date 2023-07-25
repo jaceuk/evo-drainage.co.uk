@@ -1,0 +1,66 @@
+---
+import { Icon } from 'astro-icon';
+
+interface Props {
+	background: string;
+}
+
+const { background } = Astro.props;
+---
+
+<section class={background}>
+	<div class="inner-wrapper">
+		<h2 class="sr-only">Benefits</h2>
+		<div class="benefit"><Icon name="ic:twotone-task-alt" />24/7 emergency cover</div>
+		<div class="benefit"><Icon name="ic:twotone-task-alt" />No callout charge</div>
+		<div class="benefit"><Icon name="ic:twotone-task-alt" />Experienced engineers</div>
+		<div class="benefit"><Icon name="ic:twotone-task-alt" />Satisfied customers</div>
+	</div>
+</section>
+
+<style lang="scss">
+	section {
+		padding: var(--scale-16-32) 0;
+		background: var(--c-evo-green-pale);
+	}
+
+	.inner-wrapper {
+		display: flex;
+		align-items: start;
+		gap: var(--scale-16-32);
+		flex-wrap: wrap;
+
+		@media (min-width: 768px) {
+			flex-wrap: nowrap;
+		}
+	}
+
+	.benefit {
+		display: flex;
+		align-items: center;
+		gap: var(--scale-8-16);
+		width: 100%;
+
+		@media (min-width: 500px) {
+			width: calc(50% - var(--scale-8-16));
+		}
+
+		@media (min-width: 768px) {
+			width: 100%;
+		}
+	}
+
+	svg {
+		width: var(--s-32);
+		height: var(--s-32);
+		color: var(--c-green);
+	}
+
+	.white {
+		background: var(--c-white);
+	}
+
+	.evo-green-pale {
+		background: var(--c-evo-green-pale);
+	}
+</style>

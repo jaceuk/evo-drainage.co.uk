@@ -1,0 +1,76 @@
+---
+import Icon from 'astro-icon';
+import EnquiryForm from './contactForm/Form';
+
+type Props = Record<string, never>;
+---
+
+<script src="../js/enquiryModal"></script>
+
+<div id="enquiry-modal" class="backdrop">
+	<div
+		role="alertdialog"
+		aria-modal="true"
+		aria-labelledby="modal-label"
+		aria-describedby="modal-desc"
+		class="card modal"
+	>
+		<h2 id="modal-label">Enquire online</h2>
+		<button class="button outline close" data-close="enquiry-modal">
+			<Icon name="ic:round-close" />
+			<div class="sr-only">Close</div>
+		</button>
+
+		<div id="modal-desc" class="desc">
+			<p>Please fill in the form below and we’ll get back to you shortly.</p>
+			<EnquiryForm client:only="react" />
+		</div>
+	</div>
+</div>
+
+<style lang="scss">
+	.backdrop {
+		background: rgba(0, 0, 0, 0.6);
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		z-index: 100;
+		padding: var(--scale-16-32);
+		display: none;
+		overflow-y: auto;
+
+		&.show {
+			display: flex;
+			justify-content: space-around;
+			align-items: start;
+		}
+	}
+
+	.modal {
+		max-width: var(--max-readable-width);
+		width: 100%;
+		position: relative;
+	}
+
+	.close {
+		display: flex;
+		padding: var(--s-8);
+		border-radius: 200px;
+		position: absolute;
+		top: var(--scale-8-16);
+		right: var(--scale-8-16);
+
+		svg {
+			min-width: var(--s-24);
+			min-height: var(--s-24);
+		}
+	}
+
+	.desc {
+		margin-top: var(--scale-16-32);
+		display: grid;
+		gap: var(--scale-16-32);
+	}
+</style>

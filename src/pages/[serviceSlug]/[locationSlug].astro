@@ -1,0 +1,72 @@
+---
+import { API_URL, WEBSITE } from '../../utils/constants';
+import type { Location, Service, Review } from '../../utils/types';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getReviewsByServiceAndLocationWithBackfill } from '../../utils/reviews';
+import NeighbouringLocations from '../../components/NeighbouringLocations.astro';
+import ServicePage from '../../components/pages/ServicePage.astro';
+import LocationInfo from '../../components/LocationInfo.astro';
+
+// Generate every location for each service
+export async function getStaticPaths() {
+	const services = await fetch(`${API_URL}/services/website/${WEBSITE}`).then((response) =>
+		response.json()
+	);
+
+	const locations = await fetch(`${API_URL}/locations`).then((response) => response.json());
+
+	return services.map((service: Service) => {
+		return locations.map((location: Location) => {
+			return {
+				params: { serviceSlug: service.slug, locationSlug: location.slug },
+				props: { location, service }
+			};
+		});
+	});
+}
+
+const { location, service } = Astro.props;
+
+const localTemplateNumber = await fetch(
+	`${API_URL}/template/service/${service.id}/location/${location.id}`
+).then((response) => response.json());
+
+const locationsInSameCounty = await fetch(`${API_URL}/locations/county/${location.county}`).then(
+	(response) => response.json()
+);
+
+const county = await fetch(`${API_URL}/county/${location.county}`).then((response) =>
+	response.json()
+);
+
+const reviews: Review[] = await getReviewsByServiceAndLocationWithBackfill(
+	service.id,
+	location.postcode,
+	location.county
+);
+const twelveReviews = reviews.slice(0, 12);
+
+const title = `${service.name} in ${location.name} | EVO Plumbing and Heating Services`;
+const description = `Welcome to EVO Plumbing and Heating Services, your first choice for ${service.name} in ${location.name}.`;
+---
+
+<BaseLayout title={title} description={description}>
+	<ServicePage
+		location={location.name}
+		service={service.name}
+		reviews={twelveReviews}
+		serviceSlug={service.slug}
+		locationSlug={location.slug}
+		localTemplateNumber={localTemplateNumber.template}
+		locationTel={location.tel}
+	/>
+
+	{location.info && <LocationInfo location={location.name} locationInfo={location.info} />}
+
+	<NeighbouringLocations
+		county={county.name}
+		service={service.name}
+		serviceSlug={service.slug}
+		locationsInSameCounty={locationsInSameCounty}
+	/>
+</BaseLayout>

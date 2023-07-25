@@ -1,0 +1,96 @@
+---
+import { Image } from '@astrojs/image/components';
+import LogoCheckatrade from '../../images/logo-checkatrade.svg';
+import CheckatradeCircle from './CheckatradeCircle.astro';
+import Section from '../Section.astro';
+import {
+	average,
+	reviews,
+	workmanship,
+	tidiness,
+	reliability,
+	courtesy,
+	accuracy
+} from '../../utils/checkatrade';
+
+type Props = Record<string, never>;
+---
+
+<Section>
+	<div class="wrapper">
+		<header>
+			<h2 class="sr-only">Checkatrade scores</h2>
+			<Image src={LogoCheckatrade} alt="Checkatrade logo" />
+			<CheckatradeCircle score={average} />
+		</header>
+
+		<p>Average scores based on the last 12 months across our Checkatrade accounts</p>
+		<p>{reviews} total reviews</p>
+
+		<div class="scores">
+			<div class="score"><span>{workmanship}</span> Workmanship</div>
+			<div class="score"><span>{tidiness}</span> Tidiness</div>
+			<div class="score"><span>{reliability}</span> Reliability</div>
+			<div class="score"><span>{courtesy}</span> Courtesy</div>
+			<div class="score"><span>{accuracy}</span> Accuracy</div>
+		</div>
+	</div>
+</Section>
+
+<style lang="scss">
+	section {
+		padding: var(--scale-32-64) 0;
+	}
+
+	.wrapper {
+		display: grid;
+		gap: var(--scale-16-32);
+		justify-items: center;
+		text-align: center;
+	}
+
+	p {
+	}
+
+	header {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		justify-content: center;
+		gap: var(--scale-16-32);
+	}
+
+	img {
+		width: 200px;
+
+		@media (min-width: 768px) {
+			width: auto;
+		}
+	}
+
+	.scores {
+		display: flex;
+		align-items: center;
+		gap: var(--scale-16-32);
+		justify-content: space-between;
+		flex-wrap: wrap;
+		text-align: left;
+
+		@media (min-width: 768px) {
+			flex-direction: row;
+		}
+	}
+
+	.score {
+		width: 40%;
+
+		@media (min-width: 768px) {
+			width: auto;
+		}
+	}
+
+	.score span {
+		color: var(--c-green-dark);
+		font-weight: var(--fw-bold);
+	}
+</style>

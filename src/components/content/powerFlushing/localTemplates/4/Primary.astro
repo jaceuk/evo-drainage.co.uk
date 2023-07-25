@@ -1,0 +1,41 @@
+---
+import { FREEPHONE_NUMBER } from '../../../../../utils/constants';
+
+interface Props {
+	location: string;
+	locationTel: string;
+}
+
+const { location, locationTel } = Astro.props;
+---
+
+<h2 class="h3">Would you like to up the performance of your central heating system?</h2>
+<p>
+	You need experts like us at EVO Plumbing and Heating. We are the providers of power flushing
+	services in {location}
+	and its surrounding areas.
+</p>
+
+<h3 class="h4 coloured-text">
+	Call us now on {
+		locationTel ? locationTel : `Freephone ${FREEPHONE_NUMBER} - 24 hour Emergency Helpline`
+	}
+</h3>
+
+<p>
+	if you are facing any issues with the radiators, boiler and pipes of your central heating system.
+</p>
+
+<h3 class="h4">
+	Restore your central heating system with power flushing services in {location}
+</h3>
+<p>
+	The breakdown of your central heating is caused by the accumulation of unwanted byproducts around
+	your boiler, radiators and pipes that can seriously compromise the functionality of your system,
+	and ultimately lead to expensive repairs.
+</p>
+<p>
+	Fret not because you can power flush your system to get rid of the issue. Power flushing is an
+	efficacious measure to purge components of your central heating system and restore its optimal
+	efficiency without requiring replacement of the entire system.
+</p>

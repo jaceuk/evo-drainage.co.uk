@@ -1,0 +1,87 @@
+---
+import Icon from 'astro-icon';
+import NavLists from './NavLists.astro';
+import NavListItem from './NavListItem.astro';
+import NavList from './NavList.astro';
+
+type Props = Record<string, never>;
+---
+
+<script src="../../js/mobileNav"></script>
+
+<button aria-label="Toggle menu">
+	<span id="menu" class="menu show"><Icon name="ic:round-menu" /></span>
+	<span id="close" class="close"><Icon name="ic:round-close" /></span>
+</button>
+
+<div id="mobile-nav" class="mobile-nav">
+	<nav>
+		<NavList>
+			<NavListItem href="/" text="Home" />
+			<NavLists />
+			<NavListItem href="/contact" text="Contact" />
+		</NavList>
+	</nav>
+</div>
+
+<style lang="scss">
+	button {
+		z-index: 150;
+		position: relative;
+		background: none;
+		border: none;
+		display: flex;
+
+		@media (min-width: 768px) {
+			display: none;
+		}
+
+		svg {
+			min-width: var(--s-32);
+			min-height: var(--s-32);
+		}
+	}
+
+	.close,
+	.menu {
+		display: none;
+
+		&.show {
+			display: flex;
+		}
+	}
+
+	.mobile-nav {
+		height: 100vh;
+		position: absolute;
+		right: 0;
+		top: 0;
+		width: 100%;
+		background-color: var(--c-white);
+		padding: calc(var(--scale-32-64) + 72px) var(--scale-32-64) var(--scale-32-64);
+		display: none;
+
+		&.show {
+			display: block;
+		}
+	}
+
+	nav {
+		display: flex;
+		gap: var(--size-medium);
+		flex-direction: column;
+		align-items: flex-start;
+		width: fit-content;
+
+		a {
+			font-size: var(--fs-nav);
+			font-weight: var(--fw-semi-bold);
+		}
+
+		ul {
+			padding: 0;
+			list-style: none;
+			gap: var(--s-16);
+		}
+	}
+</style>

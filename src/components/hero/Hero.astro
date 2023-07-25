@@ -1,0 +1,76 @@
+---
+import { Picture } from '@astrojs/image/components';
+import HeroCallout from './HeroCallout.astro';
+import Benefits from '../Benefits.astro';
+import Section from '../Section.astro';
+
+interface Props {
+	service: string;
+	image: ImageMetadata;
+	location?: string;
+}
+
+const { service, image, location = '' } = Astro.props;
+---
+
+<div class="section-wrapper">
+	<Section>
+		<div class="wrapper">
+			<h1>{service + (location && ` in ${location}`)}</h1>
+			<HeroCallout />
+		</div>
+		<div class="overlay"></div>
+		<Picture class="background" src={image} widths={[200, 400, 800, 1100]} loading="eager" alt="" />
+	</Section>
+</div>
+
+<Benefits background="evo-green-pale" />
+
+<style lang="scss">
+	.section-wrapper {
+		position: relative;
+		border-bottom: var(--s-16) solid var(--c-evo-orange-medium);
+
+		.wrapper {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: space-between;
+			gap: var(--scale-32-64);
+
+			@media (min-width: 768px) {
+				flex-direction: row;
+			}
+		}
+	}
+
+	h1 {
+		color: var(--c-white);
+		text-shadow: 0px 0px 4px rgba(0, 0, 0, 0.8), 0px 4px 4px rgba(0, 0, 0, 0.25);
+		padding: 0;
+
+		@media (min-width: 768px) {
+			padding: var(--scale-32-64) 0;
+		}
+	}
+
+	.overlay {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 50%;
+		background: linear-gradient(90deg, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+		height: 100%;
+		z-index: -1;
+	}
+
+	.background {
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		z-index: -2;
+	}
+</style>

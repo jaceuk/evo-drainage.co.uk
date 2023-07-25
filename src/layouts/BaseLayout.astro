@@ -1,0 +1,53 @@
+---
+import '@fontsource/poppins/400.css';
+import '@fontsource/poppins/600.css';
+import '@fontsource/poppins/700.css';
+import '../styles/normalize.css';
+import '../styles/reset.css';
+import '../styles/global.scss';
+import '../styles/typography.css';
+import '../styles/vars.css';
+import Footer from '../components/footer/Footer.astro';
+import Header from '../components/header/Header.astro';
+import { RECAPTCHA_SITE_KEY } from '../utils/constants';
+import CookieNotice from '../components/CookieNotice.astro';
+
+interface Props {
+	children: any;
+	title: string;
+	description: string;
+}
+
+const { title, description } = Astro.props;
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<link rel="sitemap" href="/sitemap-index.xml" />
+		<title>{title}</title>
+		<meta name="description" content={description} />
+		<script src=`https://www.google.com/recaptcha/api.js?render=${RECAPTCHA_SITE_KEY}` async defer
+		></script>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-490YVR77QK"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag() {
+				dataLayer.push(arguments);
+			}
+			gtag('js', new Date());
+
+			gtag('config', 'G-490YVR77QK');
+		</script>
+	</head>
+	<body>
+		<Header />
+		<slot />
+		<Footer />
+		<CookieNotice />
+	</body>
+</html>
