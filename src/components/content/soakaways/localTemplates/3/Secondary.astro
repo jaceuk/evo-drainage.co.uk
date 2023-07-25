@@ -1,0 +1,62 @@
+---
+import ServiceInfoCard from '../../../../ServiceInfoCard.astro';
+import Soakaways from '../../../../../images/info-soakaways.jpg';
+import SepticTanks from '../../../../../images/info-septic-tanks.jpg';
+import Sewage from '../../../../../images/info-sewage.jpg';
+
+interface Props {
+	location: string;
+}
+
+const { location } = Astro.props;
+---
+
+<ServiceInfoCard title={`Soakaways in ${location}`} image={Soakaways}>
+	<p>
+		Soakaways can be used to as a solution for various drainage issues. Most modern day domestic
+		properties have a soakaway for their surface water drainage. Soakaways wuill also typically be
+		used for properties where it is not possible to connect the drainage to a mains sewer system.
+	</p>
+	<p>
+		When planning a soakaway there are a variety of factors that need to be taken in to
+		consideration. Drainage suitability will play an important part in determining the size of the
+		soakaway. The soakaway will also need to be positioned at a site that conforms to building
+		regulations in respect to proximity to surrounding properties and boundaries.
+	</p>
+	<p>
+		If you live in {location} then call us now to discuss your soakaway requirements.
+	</p>
+</ServiceInfoCard>
+
+<ServiceInfoCard title={`Septic Tanks in ${location}`} image={SepticTanks} imagePosition="left">
+	<p>
+		A septic tank is typically constructed of concrete, fiberglass or plastic and is commonly used
+		in areas that are not connected to a sewer system, typically found in more rural areas. The
+		septic tank will usually consist of two chambers separating the solid waste from the liquid. The
+		liquid effluent is usually disposed of in a septic tank drain field.
+	</p>
+	<p>
+		Septic tanks require routine emptying and maintenance to ensure soakaways do not silt and block.
+		Other external factors can also have an impact on the tank performance such as adverse weather,
+		rat or rodent infestation, flooding or earth movement.
+	</p>
+	<p>
+		If you are experiencing any issues with your septic tank, or you are looking to install a new or
+		replacement tank in or around {location} we are able to give <strong>expert advice</strong> and provide
+		a solution to your requirements with minimum disruption to you.
+	</p>
+</ServiceInfoCard>
+
+<ServiceInfoCard title={`Sewage Treatment Plants in ${location}`} image={Sewage}>
+	<p>
+		Sewage treatment plants are now generally the preferred drainage solution if a household is
+		unable to connect to a sewer network. In many aspects they are similar to septic tanks, but the
+		discharged waste effluent is far cleaner than that of a septic tank. Because the discharge is
+		much purer it is not imperative to output to a soakaway. Many sewage treatment plants discharge
+		direct into a ditch or stream.
+	</p>
+	<p>
+		We have vast experience in all aspects of planning and installation of sewage treament plants.
+		If you live in or around {location} and require advice or assistance please don't hesitate to call.
+	</p>
+</ServiceInfoCard>

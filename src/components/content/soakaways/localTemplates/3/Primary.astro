@@ -1,0 +1,34 @@
+---
+import { FREEPHONE_NUMBER } from '../../../../../utils/constants';
+
+interface Props {
+	location: string;
+	locationTel: string;
+}
+
+const { location, locationTel } = Astro.props;
+---
+
+<h2 class="h3">
+	Do you have an enquiry about Soakaways and Septic Tanks and live in {location} or the surrounding area?
+</h2>
+<h3 class="h4 coloured-text">
+	Call us now on {
+		locationTel ? locationTel : `Freephone ${FREEPHONE_NUMBER} - 24 hour Emergency Helpline`
+	}
+</h3>
+
+<p>
+	Over a period of time soakaways can silt up and not work as effectively as they should. We may be
+	able to remedy this problem by simply jetting the drain run to the soakaway. However, if the
+	problem is not rectified and you require a replacement or new soakaway we can assist in
+	determining the suitability or advice on type of soakaway.
+</p>
+<p>
+	We are also able to give advice on all other types of sewage systems including Septic Tanks,
+	Pumping Stations, and Sewage treatment plants.
+</p>
+<h3 class="h4">
+	For specialist drainage installation reqirements in {location} call us today and discover why we are
+	rated so highly by our customers.
+</h3>

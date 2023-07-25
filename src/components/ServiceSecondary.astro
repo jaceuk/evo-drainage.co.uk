@@ -16,10 +16,12 @@ import DrainRepairsLocalTemplate2 from './content/drainRepairs/localTemplates/2/
 import Soakaways from './content/soakaways/Secondary.astro';
 import SoakawaysLocalTemplate1 from './content/soakaways/localTemplates/1/Secondary.astro';
 import SoakawaysLocalTemplate2 from './content/soakaways/localTemplates/2/Secondary.astro';
+import SoakawaysLocalTemplate3 from './content/soakaways/localTemplates/3/Secondary.astro';
 
 import GutterCleaning from './content/gutterCleaning/Secondary.astro';
 import GutterCleaningLocalTemplate1 from './content/gutterCleaning/localTemplates/1/Secondary.astro';
 import GutterCleaningLocalTemplate2 from './content/gutterCleaning/localTemplates/2/Secondary.astro';
+import GutterCleaningLocalTemplate3 from './content/gutterCleaning/localTemplates/3/Secondary.astro';
 
 interface Props {
 	locationSlug?: string;
@@ -52,11 +54,13 @@ if (serviceSlug === 'soakaways-septic-tanks') {
 	if (!localTemplateNumber) Content = Soakaways;
 	if (localTemplateNumber === 1) Content = SoakawaysLocalTemplate1;
 	if (localTemplateNumber === 2) Content = SoakawaysLocalTemplate2;
+	if (localTemplateNumber === 3) Content = SoakawaysLocalTemplate3;
 }
 if (serviceSlug === 'gutter-cleaning') {
 	if (!localTemplateNumber) Content = GutterCleaning;
 	if (localTemplateNumber === 1) Content = GutterCleaningLocalTemplate1;
 	if (localTemplateNumber === 2) Content = GutterCleaningLocalTemplate2;
+	if (localTemplateNumber === 3) Content = GutterCleaningLocalTemplate3;
 }
 ---
 

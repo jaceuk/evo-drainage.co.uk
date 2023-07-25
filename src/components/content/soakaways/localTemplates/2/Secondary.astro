@@ -1,6 +1,8 @@
 ---
 import ServiceInfoCard from '../../../../ServiceInfoCard.astro';
-import KerbAppeal from '../../../../../images/placeholder.png';
+import Soakaways from '../../../../../images/info-soakaways.jpg';
+import SepticTanks from '../../../../../images/info-septic-tanks.jpg';
+import Sewage from '../../../../../images/info-sewage.jpg';
 
 interface Props {
 	location: string;
@@ -9,11 +11,56 @@ interface Props {
 const { location } = Astro.props;
 ---
 
-<ServiceInfoCard title={`Maximise the kerb appeal of your ${location} home`} image={KerbAppeal}>
+<ServiceInfoCard title={`Soakaways in ${location}`} image={Soakaways}>
 	<p>
-		Achieving a deep clean for your patio, driveway and external hard surfaces is simple with EVO
-		Plumbing and Heating Services. From dirt and stains to silt and moss, our patio cleaners use the
-		latest pressure washing technologies to revive hard surfaces. Beyond this, our jet washing
-		systems are perfect for thorough graffiti removal.
+		When planning a soakaway various aspects need to be taken into account such as soil type and
+		proximity to property boundaries, buildings or roads.
+	</p>
+	<p>
+		A soakaway will be used to provide adequate surface water drainage from the property's gutter
+		system. They are also an integral part of any septic tank system. The soakaway will manage the
+		flow of liquids into the surrounding earth.
+	</p>
+</ServiceInfoCard>
+
+<ServiceInfoCard title={`Septic Tanks in ${location}`} image={SepticTanks} imagePosition="left">
+	<p>
+		For properties that do not have a connection to a mains sewer the septic tank is a very popular
+		sewage treatment process that has been in existence for hundreds of years. The unit separates
+		solid and liquid waste, allowing the liquid to seep into the surrounding earth via a soakaway.
+	</p>
+	<p>
+		Septic tanks will require maintenance to prevent problems leading to sewage overflowing or
+		soakaways blocking. However, even if the tank is regularly maintained other external factors
+		caused by adverse weather, ground movement, building work or rodent infestation can lead to
+		detrimental performance of your tank.
+	</p>
+	<p>
+		If, for whatever reason, your existing septic tank no longer fulfils your needs and a new tank
+		is required we are on hand to provide a full installation service, ensuring the new septic tank
+		is the right size and type for you and your family's needs.
+	</p>
+	<p>
+		If you suspect you have a problem with your tank we have experienced technicians covering {
+			location
+		}
+		who are able identify existing faults and offer an effective solution using the very latest technologies
+		to <strong>carry out any repairs with minimal inconvenience and cost</strong> to you.
+	</p>
+</ServiceInfoCard>
+
+<ServiceInfoCard title={`Sewage Treatment Plants in ${location}`} image={Sewage}>
+	<p>
+		Sewage treatment plants are becoming an ever more popular drainage solution for households that
+		are unable to connect to a mains sewage system. They work in a similar manner to a standard
+		septic tank, but the waste effluent is filtered and treated to a far higher standard, meaning
+		the system does not need to connect to a soakaway for filtration.
+	</p>
+	<p>
+		Our treatment plant experts covering {location} are able to assist in all aspects, <strong
+			>ensuring the right plant solution is chosen and installed conforming to Environment agency
+			standards</strong
+		>. Our comprehensive service will include practical advice and maintenance tips as well as swift
+		installation.
 	</p>
 </ServiceInfoCard>

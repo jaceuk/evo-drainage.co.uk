@@ -1,8 +1,8 @@
 ---
 import ServiceInfoCard from '../../../../ServiceInfoCard.astro';
-import BoilerServicingRepairs from '../../../../../images/placeholder.png';
-import ReplacementTanks from '../../../../../images/placeholder.png';
-import WaterPumpInstallation from '../../../../../images/placeholder.png';
+import DrainRepairs from '../../../../../images/info-drain-repairs.jpg';
+import DrainRelining from '../../../../../images/info-drain-relining.jpg';
+import Excavations from '../../../../../images/info-excavations.jpg';
 
 interface Props {
 	location: string;
@@ -11,42 +11,56 @@ interface Props {
 const { location } = Astro.props;
 ---
 
-<ServiceInfoCard title={`Replacement tanks in ${location}`} image={ReplacementTanks}>
+<ServiceInfoCard title={`Drain Repairs in ${location}`} image={DrainRepairs}>
 	<p>
-		Due to the volume of water stored in water tanks, their maintenance and condition is essential
-		to avoid a major split or leak. Tanks, like all products, are susceptible to wear and tear over
-		time and can rust, split or leak. Should this split or leak then cause the tank to burst, the
-		level of damage can be catastrophic. Along with replacement water tanks, we can replace ball
-		valves, repair leaking tanks, solve noisy, clunky tanks and install new overflows.
+		Over time, wear and tear can result in breakages in your drainage system, or it may be that
+		ground movement or corrosion is causing your drainage system to falter.
 	</p>
 	<p>
-		Ensure your water system is always running efficiently with our maintenance service. As part of
-		this service, we will inspect, clean and repair your tank, overflows and connecting pipework to
-		maintain the overall performance of your system.
-	</p>
-</ServiceInfoCard>
-
-<ServiceInfoCard
-	title={`Water pump installations in ${location}`}
-	image={WaterPumpInstallation}
-	imagePosition="left"
->
-	<p>
-		A water pump comprises one of the major instruments needed to provide heat and water to your
-		home. Working alongside thermostats, valves and boilers, a water pump helps to ensure your home
-		is always supplied with hot water, on-demand. Not only does it provide a cost-effective heating
-		solution to your home, it also helps the environment in the process.
+		Whatever the issue, if left untreated then blockages and leaks can occur which can cause further
+		problems and expense. Due to our experience at EVO Drainage Services, we are confident <strong
+			>we can tackle any issue when it comes to your drainage system</strong
+		> in {location}. We can replace parts of a system, make repairs to minor system damage or
+		completely remove and replace an entire drainage system.
 	</p>
 </ServiceInfoCard>
 
-<ServiceInfoCard
-	title={`Boiler Servicing and Repairs in ${location}`}
-	href={`/boiler-servicing-repairs/${location}`}
-	linkText={`Boiler Servicing and Repairs in ${location}`}
-	image={BoilerServicingRepairs}
->
+<ServiceInfoCard title={`Drain Relining in ${location}`} image={DrainRelining} imagePosition="left">
 	<p>
-		We can help with regular boiler maintenance to ensure its long-term performance. In the event of
-		a boiler breakdown call our emergency helpline for a <strong>speedy resolution</strong>.
+		Drain relining is a no dig technology that is often the <strong
+			>fastest, least obtrusive, and most cost efficient way</strong
+		> of repairing a damaged drain, effectively creating a pipe within a pipe to restore the integrity
+		of the drain.
+	</p>
+	<p>
+		We are able to reline drains with diameters as small as 100mm upwards. The drain can be repaired
+		either in one single length, or series of shorter runs if access is an issue. A resin soaked
+		sleeve is inserted into the defective pipe and moulded to the contours of the drain. The relined
+		section is highly resistant to future leaks and perforations and you are left with perfectly
+		functioning drains.
+	</p>
+	<p>
+		If the drain damage is isolated to a single break or crack in an isolated area then a single
+		patch repair may be sufficient to rectify the fault.
+	</p>
+</ServiceInfoCard>
+
+<ServiceInfoCard title={`Excavations in ${location}`} image={Excavations}>
+	<p>
+		We strive to resolve all drainage issues with the minimum of disruption. However, when it is
+		essential to excavate to resolve the drainage problem the job will be <strong
+			>executed swiftly with the minimum of fuss</strong
+		>.
+	</p>
+	<p>
+		All excavations in {location} are carried out following stringent health and safety procedures. <strong
+			>We ensure the affected area is conserved and re-instated to its original condition</strong
+		>, and the work is performed with the minimum of disruption. Whether digging by hand or
+		mechanical digger, all our excavations, however big or small, are carried out to the same
+		meticulous standards, giving you total peace of mind.
+	</p>
+	<p>
+		We are fully experienced in all facets of drain and sewerage excavation, whether that be for new
+		or replacement pipework, gulleys, inspection chambers, septic tanks or sewage treatment plants.
 	</p>
 </ServiceInfoCard>

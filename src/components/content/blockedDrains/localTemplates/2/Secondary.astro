@@ -1,9 +1,8 @@
 ---
-import { Image } from '@astrojs/image/components';
 import ServiceInfoCard from '../../../../ServiceInfoCard.astro';
-import BlockedSink from '../../../../../images/placeholder.png';
-import Drainage from '../../../../../images/placeholder.png';
-import LogoDrainage from '../../../../../images/logo-drainage.svg';
+import BlockedToilets from '../../../../../images/info-blocked-toilets.jpg';
+import BlockedSinks from '../../../../../images/info-blocked-sinks.jpg';
+import BlockedDrains from '../../../../../images/info-blocked-drains.jpg';
 
 interface Props {
 	location: string;
@@ -12,42 +11,54 @@ interface Props {
 const { location } = Astro.props;
 ---
 
-<ServiceInfoCard title="DIY guide to unblocking a sink" image={BlockedSink}>
-	<p>Follow our step-by-step guide to unblocking a sink:</p>
-	<ul>
-		<li>
-			Clear the plug hole. Do your best to clean it as well as you can as this will make it removing
-			the blockage easier.
-		</li>
-		<li>
-			Use bleach to remove the blockage. Once applied, leave the bleach to sit in the sink as long
-			as you can before flushing it with hot water. Allowing it to sit overnight will give you a
-			good chance of clearing the blockage. Be careful with chemicals and always use in a ventilated
-			area.
-		</li>
-	</ul>
+<ServiceInfoCard title={`Blocked Drains in ${location}`} image={BlockedDrains}>
 	<p>
-		Still no luck? This could be an indication of a more severe blockage. At this point, we advise
-		that you drain the sink and check the U-bend. To do this, place a bowl or container below the
-		bend. Gently unscrew the U-bend and allow the water to drain away. Whilst the water is draining,
-		examine the U-bend and give it a good clean; removing any debris that is blocking the tube
-		before you screw it back into place.
+		External drain blockages are usually cleared by either rods with attachments or high pressure
+		water jetting.
+	</p>
+	<p>
+		Internal drains and stack pipes can be cleared by a variety of hand tools, mechanical equipment,
+		or micro jetting equipment.
+	</p>
+	<p>
+		If it is suspected that the blockage is caused by some form of structural damage such as root
+		ingress or broken or damaged pipework we can perform a CCTV survey to check the condition of the
+		pipework, and leave you safe in the knowledge that the problem is not likely to return.
 	</p>
 </ServiceInfoCard>
 
 <ServiceInfoCard
-	title="EVO Drainage Services"
-	image={Drainage}
-	href="https://www.evo-drainage.co.uk/"
-	linkText="EVO Drainage Serices"
+	title={`Blocked Toilets in ${location}`}
+	image={BlockedToilets}
 	imagePosition="left"
 >
-	<p>Issues with <strong>blocked drains</strong> in {location}?</p>
 	<p>
-		From planned maintenance work to emergency drain repairs, choose EVO Drainage Services and
-		receive the assistance you need. Our dedicated team have a <strong
-			>wealth of experience in tackling both common and complex drainage problems</strong
-		>.
+		Blocked toilets are a very common problem. Toilets are not designed to handle a lot of the waste
+		that we try to dispose of such as sanitary items, wipes and various types of packaging.
 	</p>
-	<Image class="logo" src={LogoDrainage} alt="EVO Drainage logo" />
+	<p>
+		Consequently a toilet blockage can be a messy problem that needs to be dealt with quickly,
+		especially if the household only has the one toilet.
+	</p>
+	<p>
+		We are available to <strong>attend site quickly, night and day</strong>, anywhere in {location} with
+		the right specialist tools we are generally able to deal with the problem <strong
+			>quickly and effectively with mimimum disruption</strong
+		>. We also flush through the drains for you to ensure it doesn't happen again.
+	</p>
+</ServiceInfoCard>
+
+<ServiceInfoCard title={`Blocked Sinks in ${location}`} image={BlockedSinks}>
+	<p>
+		Sink and bathroom basin or bath blockages can be a messy nightmare. There can be nothing more
+		frustrating than a blocked sink or overflowing bath. However, whatever the cause of the
+		blockage, we are on hand <strong>24 hours a day, 7 days a week</strong> in {location}
+		to deal with the problem quickly and with minimum fuss.
+	</p>
+	<p>
+		Whether the solution is a manual unblock to clear the pipework at the sink, bath, shower or
+		basin pipe outlet, or the problem is more involved, we have the training, expertise and
+		experience to tackle the problem. Our vans carry the specialist equipment needed to clear most
+		types of blockages, so we are able to <strong>deal with the problem with no delay</strong>.
+	</p>
 </ServiceInfoCard>
