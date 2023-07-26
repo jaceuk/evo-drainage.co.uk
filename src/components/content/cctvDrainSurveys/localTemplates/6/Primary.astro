@@ -9,36 +9,23 @@ interface Props {
 const { location, locationTel } = Astro.props;
 ---
 
-<h2 class="h3">
-	Do you need a CCTV Drain Survey and live in {location} or the surrounding area?
-</h2>
+<h2>Your preferred provider of CCTV drain surveys and drain tests in {location}</h2>
+<p>
+	We have a strong track-record of diagnosing drainage system problems and safety issues extracted
+	from the evidence presented in surveys and tests. Whether you're assessing a home prior to
+	purchase or need to demonstrate drainage efficacy before a building inspector, we have you
+	covered.
+</p>
+
 <h3 class="h4 coloured-text">
-	Call us now on {
-		locationTel ? locationTel : `Freephone ${FREEPHONE_NUMBER} - 24 hour Emergency Helpline`
-	}
+	Call us now on {locationTel ? locationTel : `Freephone ${FREEPHONE_NUMBER}`} to schedule a drain survey
+	or test.
 </h3>
 
+<p>We look forward to assisting you.</p>
 <p>
-	A CCTV camera survey is the <strong>quickest, easiest, and least destructive</strong> way to establish
-	the cause and location of any drainage problem that is causing blockages.
+	CCTV drain surveys have become a popular means of identifying drainage problems in advance to
+	prevent any potential disasters, particularly an overflow in the home. The survey uses water-proof
+	camera equipment to provide a detailed look into the complete drainage system to identify problems
+	causing or likely to cause problems.
 </p>
-<p>
-	Our local team of engineers covering {location} are able to perform <strong
-		>quick "look-see" surveys</strong
-	> or alternatively we can provide a more <strong
-		>in depth service with full recording and report</strong
-	>.
-</p>
-<p>
-	We have all the latest CCTV equipment which we use to determine what is causing the problems with
-	your drainage system. Using this service means we can ascertain exactly where the blockage or
-	damage is and what is causing it. Knowing this means we aren't spending hours checking through all
-	your pipe work and testing it and also means we know how to tackle the issue in the <strong
-		>best and most cost-effective way</strong
-	>.
-</p>
-<h3 class="h4">
-	Call us today and find out why we're one of the highest rated companies for CCTV Drain Surveys in {
-		location
-	}.
-</h3>

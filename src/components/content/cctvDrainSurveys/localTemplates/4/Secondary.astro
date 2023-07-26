@@ -11,34 +11,53 @@ interface Props {
 const { location } = Astro.props;
 ---
 
-<ServiceInfoCard title={`CCTV Drain Surveys in ${location}`} image={DrainSurveys}>
+<ServiceInfoCard title={`A Look at Our CCTV Drain Surveys in ${location}`} image={DrainSurveys}>
 	<p>
-		A CCTV survey can be used to assess damage to pipework by root ingress, pipes blocked by debris
-		and silt, or pipe joint displacement and collapsed drains.
+		For any ongoing problem with your drainage system, we can perform a look-see survey. For
+		purposes of property inspection and development work, we provide recordings and a technical
+		report.
 	</p>
+	<ul>
+		<li>
+			State-of-the-art equipment that pin-points exact location of problem to support further
+			remedial work
+		</li>
+		<li>
+			Quickest way to check for rodents as they can swim through drainage systems to enter your
+			property
+		</li>
+		<li>
+			Experienced engineers who offer a reliable assessment on the effectiveness of the drainage
+			system in question
+		</li>
+	</ul>
 	<p>
-		A survey and drain test can be carried out on new or existing drainage runs in {location}
-		to ensure they comply with building regulations.
-	</p>
-	<p>
-		Surveys are <strong>commonly performed prior to a property purchase</strong> to give the buyer a
-		full understanding of the property's drainage system, and to check for any potential drainage problems
-		such as leaking or damaged pipework.
+		Leverage the easiest way to inspect drains and sewers around your existing or a new property.
+		Contact us today to understand your options and learn more about our CCTV drain surveys.
 	</p>
 </ServiceInfoCard>
 
-<ServiceInfoCard title={`Drain Tests in ${location}`} image={DrainTests} imagePosition="left">
+<ServiceInfoCard
+	title={`A snapshot of our Drain Tests in ${location}`}
+	image={DrainTests}
+	imagePosition="left"
+>
 	<p>
-		The Building Regulations state that 'any drain or private sewer shall, on completion of the
-		works including backfilling, be capable of withstanding a test for water tightness'.
+		Newly-laid drainage need to be tested for water tightness prior to backfilling. A drain or water
+		test must be performed and passed in the presence of a building inspector to progress with any
+		new development work.
 	</p>
 	<p>
-		In order for any new development work in {location} to be signed off by a building inspector either
-		a water or air drain test will need to performed and passed in their presence.
-		<strong>We are able to offer assistance in all or any aspect of this procedure</strong>.
+		An air test is usually performed for single pipes or individual drain runs. It is a better
+		method to find leaks more easily and employed when testing the complete soil stack.
 	</p>
 	<p>
-		In addition to a full testing and advisory service we also offer drain tracking services using
-		drain dyes, sondes and camera survey equipment.
+		A water test is designed for the complete drainage system, gullies and chambers included. This
+		is the other test verifying the safety of drains and soil stacks to receive the certificate of
+		safe use.
+	</p>
+	<p>
+		We have the equipment and expertise to assist with all aspects of both tests. We also offer
+		sewer tracing services to identify the exact location and depth of the drains at a property.
 	</p>
 </ServiceInfoCard>
