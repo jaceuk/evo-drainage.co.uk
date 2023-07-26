@@ -21,7 +21,7 @@ const SENDING_ERROR_MESSAGE =
 	'There was a problem sending your message, please try again. If the problem perists please email info@jace.info.';
 const SENDING_SUCCESS_MESSAGE = 'Your message was sent successfully.';
 const SENDING_MESSAGE = 'Sending';
-const SITE = 'EVO-PLUMBINGANDHEATING.CO.UK';
+const SITE = 'EVO-DRAINAGE.CO.UK';
 const PAGE = window.location.href;
 
 export default function Contact() {
